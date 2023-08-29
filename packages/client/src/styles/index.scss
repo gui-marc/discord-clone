@@ -1,0 +1,24 @@
+@import 'utils';
+@import 'colors';
+@import 'typography';
+@import 'layout';
+@import 'button';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--slate-1);
+
+  @extend .text--body;
+}

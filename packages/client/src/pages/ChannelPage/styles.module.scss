@@ -1,0 +1,45 @@
+.container {
+  height: 100%;
+  border: 1px solid var(--slate-6);
+  background-color: var(--slate-3);
+}
+
+.header {
+  padding: 1.25rem;
+
+  border-bottom: 1px solid var(--slate-6);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.3875rem;
+
+    &__avatars {
+      display: flex;
+      align-items: center;
+
+      &__avatar {
+        width: 1.75rem;
+        height: 1.75rem;
+        border: 2px solid var(--slate-3);
+        border-radius: 9999px;
+        background-color: var(--slate-6); // todo: replace with avatar color
+        &:not(:first-child) {
+          margin-left: -0.625rem;
+        }
+      }
+    }
+
+    &__online-count {
+      color: var(--spring-green);
+    }
+  }
+}

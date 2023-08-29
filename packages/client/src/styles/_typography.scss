@@ -1,0 +1,62 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .text--heading {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.35rem;
+  color: var(--slate-12);
+}
+
+p,
+.text--body {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--slate-11);
+}
+
+.text--subtle {
+  color: var(--slate-10);
+}
+
+.text--spaced {
+  letter-spacing: 0.56px;
+}
+
+
+.text {
+  font-family: 'Inter', sans-serif;
+
+  &--primary {
+    color: var(--slate-12);
+  }
+
+  &--bold {
+    font-weight: 700;
+  }
+
+  &--medium {
+    font-weight: 500;
+  }
+
+  &--normal {
+    font-weight: 400;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+
+  &--sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+

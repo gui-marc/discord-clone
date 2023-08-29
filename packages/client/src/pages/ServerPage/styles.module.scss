@@ -1,0 +1,60 @@
+@import '../../styles/utils';
+
+.server-bar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 275px;
+  gap: 1.5rem;
+  padding: 1.25rem;
+
+  &__header {
+    @include focusable;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__search {
+    position: relative;
+    height: 2.75rem;
+    
+    border-radius: 0.75rem;
+    background-color: var(--slate-3);
+
+    @include focusable;
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      left: 1rem;
+      color: var(--slate-10);
+    }
+
+    &-input {
+      display: block;
+      width: 100%;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding-inline: 1rem;
+      padding-left: 3.3875rem;
+      height: 100%;
+      color: var(--slate-12);
+      font-size: 1rem;
+      
+      &:placeholder {
+        color: var(--slate-11);
+      }
+    }
+  }
+}
+
+.server-outlet {
+  flex: 1;
+}
+

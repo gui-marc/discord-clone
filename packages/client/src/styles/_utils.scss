@@ -1,0 +1,12 @@
+@mixin focusable {
+  position: relative;
+  &:focus-visible {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -0.25rem;
+      border-radius: 1rem;
+      border: 2px solid var(--iris-6);
+    }
+  }
+}

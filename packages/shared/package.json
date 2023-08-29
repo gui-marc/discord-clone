@@ -1,0 +1,22 @@
+{
+  "name": "@discord-clone/shared",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup index.ts --format cjs,esm --dts",
+    "build": "tsup index.ts --format cjs,esm --dts"
+  },
+  "keywords": [],
+  "author": "Guilherme Marcondes",
+  "license": "ISC",
+  "dependencies": {
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "tsup": "^6.6.2",
+    "typescript": "^5.2.2"
+  }
+}

@@ -1,0 +1,53 @@
+.btn,
+button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+
+  height: 2.75rem;
+  padding-inline: 1rem;
+
+  @include focusable;
+
+  &--icon {
+    width: 2.75rem;
+    padding-inline: 0;
+  }
+
+  &--primary {
+    background-color: var(--iris-9);
+    color: var(--iris-12);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--iris-10);
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: var(--slate-10);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--slate-3);
+      color: var(--slate-12);
+    }
+  }
+
+  & + .btn {
+    margin-top: 1rem;
+  }
+}
