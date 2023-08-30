@@ -8,13 +8,13 @@ export default function Sidebar() {
   return (
     <aside className={styles.container}>
       <nav className={styles.nav}>
-        <Link to="/search" className="btn btn--icon btn--ghost">
+        <Link to="/app/search" className="btn btn--icon btn--ghost">
           <Search />
         </Link>
-        <Link to="/server " className="btn btn--icon btn--primary">
+        <Link to="/app/server " className="btn btn--icon btn--primary">
           <MessageCircle />
         </Link>
-        <Link to="/settings" className="btn btn--icon btn--ghost">
+        <Link to="/app/settings" className="btn btn--icon btn--ghost">
           <Settings2 />
         </Link>
       </nav>

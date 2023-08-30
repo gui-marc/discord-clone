@@ -12,6 +12,10 @@
   "dependencies": {
     "@discord-clone/shared": "*",
     "@fontsource/inter": "^5.0.8",
+    "@tiptap/extension-placeholder": "^2.1.7",
+    "@tiptap/pm": "^2.1.7",
+    "@tiptap/react": "^2.1.7",
+    "@tiptap/starter-kit": "^2.1.7",
     "lucide-react": "^0.271.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

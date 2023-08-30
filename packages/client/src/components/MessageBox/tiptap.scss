@@ -1,0 +1,21 @@
+.tiptap p.is-editor-empty:first-child::before {
+  color: var(--slate-10);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap {
+  appearance: none;
+  border: none;
+  outline: none;
+
+  p {
+    color: var(--slate-12);
+  }
+
+  s {
+    text-decoration: line-through;
+  }
+}

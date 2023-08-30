@@ -1,69 +1,46 @@
-import { useRef, useState } from 'react';
+import Placeholder from '@tiptap/extension-placeholder';
+import { EditorProvider, Extension } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
 
-import {
-  Smile,
-  AtSign,
-  Bold,
-  Italic,
-  Paperclip,
-  Strikethrough,
-  List,
-  SendHorizonal,
-} from 'lucide-react';
-
-import useAutosizeTextArea from '../../hooks/useAutosizeTextArea';
+import MenuBar from './MenuBar';
 import styles from './styles.module.scss';
 
-export default function MessageBox() {
-  const [value, setValue] = useState('');
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+import './tiptap.scss';
 
-  useAutosizeTextArea(textAreaRef.current, value);
+const SubmitHandler = (onSubmit: (html: string) => void) =>
+  Extension.create({
+    addKeyboardShortcuts() {
+      return {
+        Enter: ({ editor }) => {
+          onSubmit(editor.getHTML());
+          editor.commands.clearContent();
+          return true;
+        },
+      };
+    },
+  });
+
+const extensions = (onSubmit: (html: string) => void) => [
+  SubmitHandler(onSubmit),
+  StarterKit,
+  Placeholder.configure({
+    placeholder: 'Type a message',
+  }),
+];
+
+export default function MessageBox() {
+  function handleSubmit(html: string) {
+    console.log({ html });
+  }
 
   return (
     <form className={styles.container}>
-      <textarea
-        ref={textAreaRef}
-        onChange={(e) => setValue(e.target.value)}
-        autoComplete="false"
-        spellCheck="true"
-        dir="auto"
-        className={styles.input}
-        placeholder="Type a message"
-      />
-      <div className={styles.tools}>
-        <div className={styles.typography}>
-          <button type="button" className={styles['tool__icon']}>
-            <Paperclip size={20} />
-          </button>
-          <button type="button" className={styles['tool__icon']}>
-            <Italic size={20} />
-          </button>
-          <button
-            type="button"
-            className={`${styles['tool__icon']} ${styles['tool__icon--toggle']}`}
-          >
-            <Bold size={20} />
-          </button>
-          <button type="button" className={styles['tool__icon']}>
-            <Strikethrough size={20} />
-          </button>
-          <button type="button" className={styles['tool__icon']}>
-            <List size={20} />
-          </button>
-        </div>
-        <div className={styles.inserts}>
-          <button type="button" className={styles['tool__icon']}>
-            <AtSign size={20} />
-          </button>
-          <button type="button" className={styles['tool__icon']}>
-            <Smile size={20} />
-          </button>
-          <button type="submit" className={`${styles['tool__icon']} ${styles['tool__submit']}`}>
-            <SendHorizonal size={20} />
-          </button>
-        </div>
-      </div>
+      <EditorProvider
+        slotAfter={<MenuBar onSubmit={handleSubmit} />}
+        extensions={extensions(handleSubmit)}
+      >
+        {''}
+      </EditorProvider>
     </form>
   );
 }
