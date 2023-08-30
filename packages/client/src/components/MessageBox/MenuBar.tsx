@@ -1,3 +1,4 @@
+import { Editor } from '@tiptap/core';
 import { useCurrentEditor } from '@tiptap/react';
 import {
   AtSign,
@@ -12,7 +13,7 @@ import {
 
 import styles from './styles.module.scss';
 
-export default function MenuBar({ onSubmit }: { onSubmit: (html: string) => void }) {
+export default function MenuBar({ onSubmit }: { onSubmit: (editor: Editor) => void }) {
   const { editor } = useCurrentEditor();
 
   if (!editor) {
@@ -72,10 +73,7 @@ export default function MenuBar({ onSubmit }: { onSubmit: (html: string) => void
           <Smile size={20} />
         </button>
         <button
-          onClick={() => {
-            onSubmit(editor.getHTML());
-            editor.commands.clearContent();
-          }}
+          onClick={() => onSubmit(editor)}
           type="button"
           className={`${styles['tool__icon']} ${styles['tool__submit']}`}
         >

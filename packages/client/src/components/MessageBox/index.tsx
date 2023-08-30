@@ -1,3 +1,4 @@
+import { Editor } from '@tiptap/core';
 import Placeholder from '@tiptap/extension-placeholder';
 import { EditorProvider, Extension } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -7,20 +8,19 @@ import styles from './styles.module.scss';
 
 import './tiptap.scss';
 
-const SubmitHandler = (onSubmit: (html: string) => void) =>
+const SubmitHandler = (onSubmit: (editor: Editor) => void) =>
   Extension.create({
     addKeyboardShortcuts() {
       return {
         Enter: ({ editor }) => {
-          onSubmit(editor.getHTML());
-          editor.commands.clearContent();
+          onSubmit(editor);
           return true;
         },
       };
     },
   });
 
-const extensions = (onSubmit: (html: string) => void) => [
+const extensions = (onSubmit: (editor: Editor) => void) => [
   SubmitHandler(onSubmit),
   StarterKit,
   Placeholder.configure({
@@ -29,18 +29,20 @@ const extensions = (onSubmit: (html: string) => void) => [
 ];
 
 export default function MessageBox() {
-  function handleSubmit(html: string) {
-    console.log({ html });
+  function handleSubmit(editor: Editor) {
+    // Todo: handle message sending to the backend
+    console.log({ html: editor.getHTML() });
+    editor.commands.clearContent();
   }
 
   return (
-    <form className={styles.container}>
+    <div className={styles.container}>
       <EditorProvider
         slotAfter={<MenuBar onSubmit={handleSubmit} />}
         extensions={extensions(handleSubmit)}
       >
         {''}
       </EditorProvider>
-    </form>
+    </div>
   );
 }
