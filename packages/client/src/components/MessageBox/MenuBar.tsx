@@ -63,9 +63,11 @@ export default function MenuBar({ onSubmit }: { onSubmit: (html: string) => void
         </button>
       </div>
       <div className={styles.inserts}>
+        {/* Todo: make this work */}
         <button type="button" className={styles['tool__icon']}>
           <AtSign size={20} />
         </button>
+        {/* Todo: make this work */}
         <button type="button" className={styles['tool__icon']}>
           <Smile size={20} />
         </button>
