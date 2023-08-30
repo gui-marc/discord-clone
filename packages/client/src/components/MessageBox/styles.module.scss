@@ -1,0 +1,82 @@
+@import '../../styles/utils';
+
+.container {
+  position: absolute;
+  width: calc(100% - 2.5rem);
+  left: 1.25rem;
+  bottom: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--slate-8);
+  background-color: var(--slate-5);
+  border-radius: 0.75rem;
+}
+
+.input {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  height: 1.5rem;
+  max-height: 300px;
+  box-sizing: border-box;
+  appearance: none;
+  font-size: 1rem;
+  color: var(--slate-12);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  
+  &:placeholder {
+    color: var(--slate-11);
+  }
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.typography,
+.inserts {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tool__icon {
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--slate-9);
+  transition: all 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    background-color: var(--slate-6);
+    color: var(--slate-11);
+  }
+
+  &--toggle {
+    background-color: var(--slate-7);
+    color: var(--slate-11);
+
+    &:hover {
+      background-color: var(--slate-8);
+      color: var(--slate-12);
+    }
+  }
+
+  @include focusable(var(--iris-9), 0.75rem);
+}
+
+.tool__submit {
+  background-color: var(--iris-9);
+  color: var(--iris-12);
+
+  &:hover {
+    background-color: var(--iris-10);
+    color: var(--iris-12);
+  }
+}

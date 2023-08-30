@@ -1,12 +1,12 @@
-@mixin focusable {
+@mixin focusable($color: var(--iris-6), $radii: 1rem) {
   position: relative;
   &:focus-visible {
     &::before {
       content: '';
       position: absolute;
       inset: -0.25rem;
-      border-radius: 1rem;
-      border: 2px solid var(--iris-6);
+      border-radius: #{$radii};
+      border: 2px solid #{$color};
     }
   }
 }

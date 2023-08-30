@@ -2,6 +2,8 @@
   height: 100%;
   border: 1px solid var(--slate-6);
   background-color: var(--slate-3);
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -42,4 +44,9 @@
       color: var(--spring-green);
     }
   }
+}
+
+.body {
+  flex: 1;
+  position: relative;
 }

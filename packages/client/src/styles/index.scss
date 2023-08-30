@@ -11,6 +11,9 @@
   border: 0;
   text-transform: none;
   text-decoration: none;
+  &::selection {
+    background-color: var(--iris-9);
+  }
 }
 
 html,

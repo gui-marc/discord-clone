@@ -1,5 +1,6 @@
 import { Hash } from 'lucide-react';
 
+import MessageBox from '../../components/MessageBox';
 import styles from './styles.module.scss';
 
 export default function ChannelPage() {
@@ -15,6 +16,7 @@ export default function ChannelPage() {
             <div className={styles['header__meta__avatars__avatar']}></div>
             <div className={styles['header__meta__avatars__avatar']}></div>
             <div className={styles['header__meta__avatars__avatar']}></div>
+            <div className={styles['header__meta__avatars__avatar']}></div>
           </div>
           <span className="text--sublte">·</span>
           <span className="text--sublte">43 members</span>
@@ -22,6 +24,9 @@ export default function ChannelPage() {
           <span className={styles['header__meta__online-count'] + ' text--medium'}>12 online</span>
         </div>
       </header>
+      <div className={styles.body}>
+        <MessageBox />
+      </div>
     </div>
   );
 }
