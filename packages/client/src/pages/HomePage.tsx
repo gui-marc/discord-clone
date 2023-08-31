@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom';
+
 export default function HomePage() {
-  return <h1>Hello world</h1>;
+  return <Navigate to="/app/server/1/channel/1" />;
 }
