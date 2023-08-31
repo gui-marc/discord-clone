@@ -1,5 +1,5 @@
 import React from 'react';
-import { createHashRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 const HomePage = React.lazy(() => import('../pages/HomePage'));
 const AppRoot = React.lazy(() => import('../pages/AppRootPage'));
@@ -8,7 +8,7 @@ const ChannelPage = React.lazy(() => import('../pages/ChannelPage'));
 const DirectMessagePage = React.lazy(() => import('../pages/DirectMessagePage'));
 const GroupPage = React.lazy(() => import('../pages/GroupPage'));
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '',
     index: true,
