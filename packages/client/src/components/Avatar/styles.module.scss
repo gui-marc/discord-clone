@@ -1,0 +1,41 @@
+.avatar {
+  border-radius: 9999px;
+  background-color: var(--iris-3);
+  display: grid;
+  place-items: center;
+
+  &__initials {
+    line-height: normal;
+    color: var(--iris-11);
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+
+  &--small {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    & > .avatar__initials {
+      font-size: 0.625rem;
+    }
+  }
+
+  &--medium {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  &--large {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &--groupabble {
+    display: inline-grid;
+    border: 3px solid var(--slate-3);
+
+    &:not(:first-child) {
+      margin-left: -0.75rem;
+    }
+  }
+}

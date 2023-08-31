@@ -31,6 +31,9 @@ const extensions = (onSubmit: (editor: Editor) => void) => [
 export default function MessageBox() {
   function handleSubmit(editor: Editor) {
     // Todo: handle message sending to the backend
+    if (editor.isEmpty) {
+      return;
+    }
     console.log({ html: editor.getHTML() });
     editor.commands.clearContent();
   }

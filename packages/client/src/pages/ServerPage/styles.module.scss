@@ -58,3 +58,119 @@
   flex: 1;
 }
 
+.server-bar__item-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.server-bar__item-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--slate-10);
+
+  transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    color: var(--slate-11);
+
+    p {
+      color: var(--slate-11);
+    }
+  }
+
+  &[data-state='open'] > .server-bar__item-chevron {
+    transform: rotate(90deg);
+  }
+}
+
+.server-bar__item-chevron {
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-right: 0.75rem;
+}
+
+.server-bar__item-add {
+  color: var(--slate-10);
+
+  &:hover {
+    color: var(--slate-11);
+  }
+}
+
+.server-bar__item-content {
+  padding-block: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  overflow: hidden;
+
+  &[data-state='open'] {
+    animation: slide-down 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  &[data-state='closed'] {
+    animation: slide-up 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.selector {
+  justify-content: flex-start;
+  gap: 0.75rem;
+
+  &__text {
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 8rem;
+    white-space: nowrap;
+  }
+
+  & + .selector {
+    margin-top: 0; // remove from button
+  }
+
+  &__participants-count {
+    width: 1.75rem;
+    height: 1.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    display: grid;
+    place-items: center;
+    background-color: var(--iris-3);
+    color: var(--iris-11);
+  }
+}
+
+.unread-count {
+  padding: 0.125rem 0.25rem;
+  margin-left: auto;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--iris-12);
+  line-height: normal;
+  background-color: var(--iris-3);
+  border-radius: 999px;
+}

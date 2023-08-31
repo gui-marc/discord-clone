@@ -54,6 +54,10 @@ p,
     text-transform: capitalize;
   }
 
+  &--green {
+    color: var(--spring-green);
+  }
+
   &--sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
