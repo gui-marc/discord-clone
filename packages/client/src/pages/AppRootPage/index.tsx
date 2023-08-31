@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Sidebar from '../../components/Sidebar';
@@ -8,7 +9,9 @@ export default function AppRoot() {
     <div className={styles['app-root']}>
       <Sidebar />
       <main className={styles['container']}>
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </main>
     </div>
   );

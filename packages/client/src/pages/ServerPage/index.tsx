@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import * as Accordion from '@radix-ui/react-accordion';
@@ -77,7 +78,9 @@ export default function ServerPage() {
         </Accordion.Root>
       </aside>
       <div className={styles['server-outlet']}>
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
